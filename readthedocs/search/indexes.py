@@ -107,7 +107,7 @@ class Index(object):
 
     def put_mapping(self, index=None):
         index = index or self._index
-        self.es.indices.put_mapping(index, self._type, self.get_mapping())
+        self.es.indices.put_mapping(self._type, self.get_mapping(), index)
 
     def bulk_index(self, data, index=None, chunk_size=500, parent=None,
                    routing=None):
